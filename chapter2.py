@@ -395,3 +395,296 @@ print(a)
 b = [6,7]
 a.extend(b)
 print(a)
+
+
+# 튜플
+
+t1 = (1, 2, 'a', 'b')
+print(t1[0])
+print(t1[3])
+
+t1 = (1, 2, 'a', 'b')
+print(t1[1:])
+
+t2 = (3, 4)
+print(t1 + t2)
+
+print(t2 * 3)
+
+t1 = (1, 2, 'a', 'b')
+print(len(t1))
+
+
+#딕셔너리
+
+a= {1: 'a'}
+a[2] = 'b'
+print(a)
+
+del a[1]
+print(a)
+
+a = {1: 'a', 2: 'b'}
+a['name'] = 'pey'
+print(a)
+
+a[3] = [1,2,3]
+print(a)
+
+del a[1]
+print(a)
+
+grade = {'pey': 10, 'juliet': 99}
+print(grade['pey'])
+print(grade['juliet'])
+
+a = {1: 'a', 2: 'b'}
+print(a[1])
+print(a[2])
+
+a = {'a':1, 'b':2}
+print(a['a'])
+print(a['b'])
+
+dic = {'name': 'pey', 'phone':'0119993323', 'birth':'1118'}
+print(dic['name'])
+print(dic['phone'])
+print(dic['birth'])
+
+a = {1:'a', 1:'b'}
+print(a)
+
+# 딕셔너리 관련 함수
+
+a = { 'name' : 'pey', 'phone' : '0119993323' }
+print(a.keys())
+
+print(list(a.keys()))
+
+print(a.values())
+
+print(a.items())
+
+a.clear()
+print(a)
+
+a = {'name':'pey', 'phone': '0119993323', 'birth':'1118'}
+print(a.get('name'))
+print(a.get('phone'))
+
+print(a.get('foo', 'bar')) # 맨 뒤쪽은 디폴트값 키 없으면 뒤에 꺼
+
+a = {'name' : 'pey', 'phone': '0119993323', 'birth': '1118'}
+print('name' in a)
+print('email' in a)
+
+# 집합 자료형
+
+s1 = set([1,2,3])
+print(s1)
+
+s2 = set("hello")
+print(s2)
+
+# 자료형 특징
+# 중복을 허용하지 않는다.
+# 순서가 없다.
+
+s1 = set([1,2,3])
+l1 = list(s1)
+
+print(l1)
+print(l1[0])
+
+t1 = tuple(s1)
+print(t1)
+print(t1[0])
+
+# 교집합, 합집합, 차집합 구하기
+
+s1 = set([1, 2, 3, 4, 5, 6])
+s2 = set([4, 5, 6, 7, 8, 9])
+
+# 교집합
+print( s1 & s2)
+
+print(s1.intersection(s2))
+
+#합집합
+
+print( s1 | s2)
+
+print(s1.union(s2))
+
+# 차집합
+
+print(s1 - s2)
+print(s2 - s1)
+
+print(s1.difference(s2))
+print(s2.difference(s1))
+
+# 집합 자료형 관련 함수
+
+s1 = set([1, 2, 3])
+s1.add(4)
+print(s1)
+
+
+s1 = set([1, 2, 3])
+s1.update([4, 5, 6])
+print(s1)
+
+s1 = set([1,2,3])
+s1.remove(2)
+print(s1)
+
+# 불 자료형
+
+a= True
+b= False
+
+print(type(a))
+print(type(b))
+
+print( 1 == 1 )
+print( 2 > 1 )
+print( 2 < 1 )
+
+# 볼 연산
+
+print(bool('python'))
+print(bool(''))
+
+# 변수란?
+
+a = 1
+b = "python"
+c = [1,2,3]
+
+a = [1,2,3]
+
+print(id(a))    # 메모리의 주소
+
+
+a = [1, 2, 3]
+b = a
+
+print(id(a))    # 복사한건 메모리 같음
+print(id(b))
+
+print( a is b)
+
+a[1] = 4
+print(a)
+print(b)    # b는 안바꿨는데 변경됨
+
+a = [1, 2, 3]
+b = a[:]
+a[1] = 4
+print(a)
+print(b)    # 슬라이싱 한건 변하지 않음.
+
+from copy import copy
+a = [1, 2, 3]
+b = copy(a)
+
+print(a)
+print(b)
+print(a is b)
+
+# 변수를 만드는 여러가지 방법
+a, b = ('python', 'life')
+
+(a, b) = 'python', 'life'
+
+[a,b] = ['python', 'life']
+
+a = b = 'python'
+
+
+a = 3
+b = 5
+a, b = b, a
+print(a)
+print(b)
+
+
+
+###################
+#   연습문제 #
+###################
+
+
+# 홍길동 씨 의 평균 점수를 구해보자
+# 국어 - 80점 , 영어 - 75점, 수학 - 55점
+
+list = [80, 75, 55]
+list_len = len(list)
+list_sum = list[0] + list[1] + list[2]
+result = list_sum / list_len
+
+print('홍길동씨의 평균점수는 : %d' % result)
+
+
+# 자연수 13이 홀수 인지 짝수인지 판별할 수 있는 방법
+
+count = 13
+
+result = ['짝수', '홀수']
+result = result[count%2]
+
+print(f'자연수 13는 {result}입니다.')
+
+# 홍길동씨의 주민등록번호는 881120-1068234이다. 홍길동 씨의 주민등록번호를 연월일(YYYYMMDD)부분과 그 뒤의 숫자 부분으로 나누어 출력해 보자.
+
+pin = "881120-1068234"
+
+yyyymmdd = "19" + pin[:6]
+
+num = pin[7:]
+
+print(yyyymmdd)
+print(num)
+
+# 주민등록 번호 뒷자리의 맨 첫번째 숫자는 성별을 나타낸다. 주민등록번호에는 성별을 나타내는 숫자를 출력해 보자.
+
+pin = "881120-1068234"
+
+print(pin[pin.index('-')+1:pin.index('-')+2])
+
+
+# 다음과 같은 문자열 a:b:c:d 가 있다. 문자열의 replace함수를 사용하여 a#b#c#d로 바꿔서 출력해 보자.
+
+a = "a:b:c:d"
+b = a.replace(":", "#")
+print(b)
+
+# [1,3,5,,4,2] 리스트를 [5,4,3,2,1] 로 만들어 보자.
+a = [1, 3, 5, 4, 2]
+a.sort()
+a.reverse()
+print(a)
+
+# ['Life', 'is', 'too', 'short'] 리스트를 Life is too short 문자열로 만들어 출력해 보자.
+a = ['Life', 'is', 'too', 'short']
+result = " ".join(a)
+print(result)
+
+# (1,2,3) 튜플에 값 4를 추가하여 (1,2,3,4)를 만들어 출력해 보자.
+a = (1,2,3)
+a = a + (4,)
+
+print(a)
+
+# 딕셔너리 a에서 'B'에서 해당되는 값을 추출해 보자
+a = {'A': 90, 'B': 80, 'C': 70 }
+result =  a.get('B')
+print(a)
+print(result)
+
+# a 리스트에서 중복 숫자를 제거해 보자.
+
+a = [1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 5]
+aSet = set(a)
+print(aSet)
