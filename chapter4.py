@@ -172,9 +172,105 @@ print("life", "is", "too short")
 for i in range(10):
     print(i, end = ' ')
 
+# 파일 생성하기
+
+f = open("새파일.txt", 'w')
+for i in range(1, 11):
+    data = "%d번째 줄입니다.\n" %i
+    f.write(data)
+f.close()
+
+f = open("새파일.txt", 'r')
+line = f.readline()
+print(line)
+f.close()
+
+f = open("새파일.txt", 'r')
+while True:
+    line = f.readline()
+    if not line: break
+    print(line)
+f.close()
 
 
+f = open("새파일.txt", 'r')
+lines = f.readlines()
+for line in lines:
+    print(line)
+f.close()
+
+f = open("새파일.txt", 'r')
+data = f.read()
+print(data)
+f.close()
+
+f = open("새파일.txt", 'a')
+for i in range(11, 20):
+    data = "%d 번째 줄입니다.\n" % i
+    f.write(data)
+f.close()
+
+f = open("foo.txt", 'w')
+f.write("Life is too short, you need python")
+f.close()
+
+with open("foo.txt", 'w') as f:
+    f.write("Life is too short, you need python")
 
 
+# 주어진 자연수가 홀수인지 짝수인지 판별해주는 함수(is_odd)를 작성해 보자.
+def is_odd(number):
+    if number % 2 == 1:
+        return True
+    else:
+        return False
+
+print(is_odd(1))
+print(is_odd(2))
 
 
+# 입력으로 들어오는 모든 수의 평균 값을 계산해 주는 함수를 작성해보자.
+
+def avg_number(*args):
+    result = 0
+    for i in args:
+        result += i
+    return result / len(args)
+
+print(avg_number(1,2))
+print(avg_number(1,2,3,4,5))
+
+
+# 다음 숫자를 입력받아 더하여 돌려주는 프로그램.
+
+input1 = input("첫번째 숫자를 입력하세요:")
+input2 = input("두번째 숫자를 입력하세요:")
+
+total = int(input1) + int(input2)
+print("두 수의 합은 %s 입니다." % total)
+
+# 사용자의 입력을 파일에 저장하는 프로그램을 작성해보자.(기존에 작성한 내용을 유지하고 새로 입력한 내용을 추가해야 한다.)
+
+user_input = input("저장할 내용을 입력하세요:")
+f = open('text.txt', 'a')
+f.write(user_input)
+f.write('\n')
+f.close()
+
+# 다음과 같은 내용을 지닌 파일 test.txt가 있다. 이 파일의 내용 중 'java'라는 문자열을 'python'으로 바꾸어서 저장해 보자.
+
+# Life is too short
+# you need java
+
+f = open('test2.txt', 'w')
+body = """
+    Life is too short
+    you need java
+"""
+f.close()
+
+body = body.replace("java", "python")
+
+f = open('test2.txt', 'w')
+f.write(body)
+f.close()
